@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fboumell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 09:22:59 by fboumell          #+#    #+#             */
-/*   Updated: 2021/03/28 10:13:38 by fboumell         ###   ########.fr       */
+/*   Created: 2021/03/29 12:05:53 by fboumell          #+#    #+#             */
+/*   Updated: 2021/03/29 12:18:30 by fboumell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ int	*ft_range(int min, int max)
 	int i;
 
 	i = 0;
-	if (!(tab = (int *)(malloc(sizeof(int) * (max - min)))))
+	if (min >= max)
 		return (0);
-	while (i < max - min)
+	tab = malloc(sizeof(int) * (max - min));
+	while (min < max)
 	{
-		tab[i] = min + i;
+		tab[i] = min;
 		i++;
+		min++;
 	}
 	return (tab);
 }
